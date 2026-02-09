@@ -18,27 +18,26 @@ private:
     double balance;
 
 public:
-    // Constructors
+
     BankAccount();
     BankAccount(int accNum, std::string holder, double initialBalance);
 
-    // --- Rule of Three ---
-    BankAccount(const BankAccount& other);            // Copy Constructor
-    BankAccount& operator=(const BankAccount& other); // Copy Assignment
-    ~BankAccount();                                   // Destructor
+    // rule of three
+    BankAccount(const BankAccount& other);            
+    BankAccount& operator=(const BankAccount& other); 
+    ~BankAccount();                                   
 
-    // --- Operator Overloading ---
+    // operator Overloading
     BankAccount& operator+=(double amount); // Deposit
     BankAccount& operator-=(double amount); // Withdrawal
     bool operator==(const BankAccount& other) const;
     bool operator<(const BankAccount& other) const;
     bool operator>(const BankAccount& other) const;
 
-    // --- Static Utility Functions ---
+    // static utility
     static void printAccount(const BankAccount& account);
     static BankAccount createAccountFromInput();
 
-    // Getters
     double getBalance() const { return balance; }
 };
 
@@ -62,8 +61,9 @@ BankAccount::BankAccount(const BankAccount& other) {
     balance = other.balance;
 }
 
+// to prevent self-assignment
 BankAccount& BankAccount::operator=(const BankAccount& other) {
-    if (this != &other) { // Prevent self-assignment
+    if (this != &other) { // to prevent self-assignment
         accountNumber = other.accountNumber;
         accountHolder = other.accountHolder;
         balance = other.balance;
@@ -87,7 +87,7 @@ BankAccount& BankAccount::operator-=(double amount) {
         std::cout << "Insufficient funds or invalid amount.\n";
     }
     return *this;
-}
+}  // :]
 
 bool BankAccount::operator==(const BankAccount& other) const {
     return this->accountNumber == other.accountNumber;
@@ -101,7 +101,7 @@ bool BankAccount::operator>(const BankAccount& other) const {
     return this->balance > other.balance;
 }
 
-
+// double check!!!! 
 void BankAccount::printAccount(const BankAccount& account) {
     std::cout << "\n--- Account Details ---" << std::endl;
     std::cout << "Account #: " << account.accountNumber << std::endl;
