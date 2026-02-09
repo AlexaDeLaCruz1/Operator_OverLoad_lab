@@ -1,4 +1,8 @@
-
+/*
+Author: Alexa De La Cruz
+Date: 2/4/2026
+Purpose: Enhancing the Bank Account Management System
+*/
 
 // The Header File
 #ifndef BANKACCOUNT_H
